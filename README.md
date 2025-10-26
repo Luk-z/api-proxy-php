@@ -8,7 +8,7 @@ This is a lightweight API proxy built with Lumen (Laravel micro-framework). It p
 
 ## Requirements
 
-- PHP 8.2 or higher
+- PHP 7.3 or higher
 - Composer
 
 ## Installation
