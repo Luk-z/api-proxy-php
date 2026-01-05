@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0676771ca9e83b8f48b1218337ce4fdd",
+    "content-hash": "56e20bd634cc8b4413065eb58e2297e0",
     "packages": [
         {
             "name": "brick/math",
@@ -2089,6 +2089,52 @@
                 "source": "https://github.com/laravel/serializable-closure"
             },
             "time": "2024-11-14T18:34:49+00:00"
+        },
+        {
+            "name": "luk-z/php-api-token-auth",
+            "version": "v0.1.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Luk-z/php-api-token-auth.git",
+                "reference": "49ab1b90c3068b0d0538b2f871279b6c96694285"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Luk-z/php-api-token-auth/zipball/49ab1b90c3068b0d0538b2f871279b6c96694285",
+                "reference": "49ab1b90c3068b0d0538b2f871279b6c96694285",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PATA\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luca Ziliani",
+                    "email": "lucagcc@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple PHP REST API token-based authentication",
+            "homepage": "https://github.com/Luk-z/php-api-token-auth",
+            "keywords": [
+                "jwt",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/Luk-z/php-api-token-auth/issues",
+                "source": "https://github.com/Luk-z/php-api-token-auth/tree/v0.1.18"
+            },
+            "time": "2023-02-02T17:59:20+00:00"
         },
         {
             "name": "monolog/monolog",

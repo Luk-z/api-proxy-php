@@ -10,6 +10,11 @@ This is a lightweight API proxy built with Lumen (Laravel micro-framework). It p
 composer require luk-z/api-proxy-php
 ```
 
+### Required `define`
+
+In order to work the following php define should be defined:
+- APP_TABLE_APPS
+
 ## Requirements
 
 - PHP 7.3 or higher

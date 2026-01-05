@@ -16,3 +16,5 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/hello', 'HelloController@index');
+$router->get('/hello/withLoginApp', 'HelloController@withLoginApp');
+$router->get('/hello/withAuth', 'HelloController@withAuth');
