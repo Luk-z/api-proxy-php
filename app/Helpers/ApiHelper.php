@@ -72,9 +72,11 @@ class ApiHelper
     public static function loginApp($options = []) {
         $request = isset($options["request"]) ? $options["request"] : [];
         $token = $request->input('token') ?? $request->header('token');
-        $res = app('db')->table(APP_TABLE_APPS)->where("token", $token)->
-            limit(1)->get();
-        if ($res->count() == 0) {
+        if ($token === null || trim($token) === '') {
+            return ["result" => false];
+        }
+        $res = app('db')->table(APP_TABLE_APPS)->where("token", $token)->limit(1)->get();
+        if ($res->count() === 0) {
             return ["result" => false];
         }
 
