@@ -61,8 +61,12 @@ class ApiHelper
             $options["benchInfo"] = true;
         }
         $options["success"] = true;
+        $responseCode = $options["responseCode"] ?? 200;
 
-        return self::jsonResponse($options);
+        return response()->json(
+            self::jsonResponse($options),
+            $responseCode
+        );
     }
 
     public static function loginApp($options = []) {
