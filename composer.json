@@ -1,7 +1,17 @@
 {
     "name": "luk-z/api-proxy-php",
     "description": "API Proxy written in PHP using Lumen framework",
-    "type": "project",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["api", "proxy", "lumen", "php", "api-gateway", "middleware"],
+    "authors": [
+        {
+            "name": "Luca Ziliani",
+            "email": "lucagcc@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/Luk-z/api-proxy-php",
+    "readme": "README.md",
     "require": {
         "php": "^7.3|^8.0",
         "laravel/lumen-framework": "^8.0",
