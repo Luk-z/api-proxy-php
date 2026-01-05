@@ -47,7 +47,7 @@ This project uses PHPUnit for testing.
 composer test
 
 # Run tests with coverage
-composer test -- --coverage-html coverage
+./vendor/bin/phpunit --coverage-html coverage
 ```
 
 All tests are located in the `tests/` directory and must follow PSR-12 coding standards.
