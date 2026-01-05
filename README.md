@@ -60,6 +60,7 @@ This project includes PHP linting and formatting tools that work seamlessly with
 
 - **PHP_CodeSniffer (PHPCS)**: Linter for detecting coding standard violations (PSR-12)
 - **PHP CS Fixer**: Automatic code formatter
+- **PHPUnit**: Testing framework for unit and integration tests
 
 #### Visual Studio Code Setup
 
@@ -99,8 +100,25 @@ composer format:check
 
 - `phpcs.xml` - PHP_CodeSniffer configuration (PSR-12 standard)
 - `.php-cs-fixer.php` - PHP CS Fixer configuration
+- `phpunit.xml` - PHPUnit configuration
 - `.vscode/settings.json` - VS Code workspace settings
 - `.vscode/extensions.json` - Recommended VS Code extensions
+
+### Testing
+
+This project uses PHPUnit for testing.
+
+Run all tests:
+```bash
+composer test
+```
+
+Run tests with coverage:
+```bash
+./vendor/bin/phpunit --coverage-html coverage
+```
+
+Tests are located in the `tests/` directory and follow the PSR-12 coding standard.
 
 ## API Endpoints
 
