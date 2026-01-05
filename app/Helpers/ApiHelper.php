@@ -44,7 +44,7 @@ class ApiHelper
         );
     }
 
-    public static function loginErrorResponse($options = []) {
+    public static function loginErrorResponse() {
         $options = [
             "additionalData" => [
                 "message" => "Authentication failed",
