@@ -10,6 +10,40 @@ use PATA\Security\FakeHash;
 class HelloControllerTest extends TestCase
 {
     /**
+     * Create a database mock that returns a collection with specified count
+     *
+     * @param int $count Number of results to return
+     * @return object Mock database connection
+     */
+    private function createDatabaseMock($count) {
+        // Create an anonymous class that mimics Illuminate\Support\Collection
+        $resultMock = new class ($count) {
+            private $count;
+
+            public function __construct($count) {
+                $this->count = $count;
+            }
+
+            public function count() {
+                return $this->count;
+            }
+        };
+
+        // Create database query builder mock
+        $dbMock = $this->getMockBuilder(\stdClass::class)
+            ->addMethods(['table', 'where', 'limit', 'get'])
+            ->getMock();
+
+        // Configure the database mock chain
+        $dbMock->method('table')->willReturnSelf();
+        $dbMock->method('where')->willReturnSelf();
+        $dbMock->method('limit')->willReturnSelf();
+        $dbMock->method('get')->willReturn($resultMock);
+
+        return $dbMock;
+    }
+
+    /**
      * Test that the hello endpoint returns the correct JSON response
      *
      * @return void
@@ -178,26 +212,8 @@ class HelloControllerTest extends TestCase
      * @return void
      */
     public function testWithLoginAppSuccessWithValidToken() {
-        // Create an anonymous class that mimics Illuminate\Support\Collection
-        $resultMock = new class () {
-            public function count() {
-                return 1;
-            }
-        };
-
-        // Create database query builder mock
-        $dbMock = $this->getMockBuilder(\stdClass::class)
-            ->addMethods(['table', 'where', 'limit', 'get'])
-            ->getMock();
-
-        // Configure the database mock chain
-        $dbMock->method('table')->willReturnSelf();
-        $dbMock->method('where')->willReturnSelf();
-        $dbMock->method('limit')->willReturnSelf();
-        $dbMock->method('get')->willReturn($resultMock);
-
         // Bind the mock to the app container
-        $this->app->instance('db', $dbMock);
+        $this->app->instance('db', $this->createDatabaseMock(1));
 
         // Make request with valid token
         $response = $this->call('GET', '/hello/withLoginApp', ['token' => 'valid-app-token']);
@@ -215,26 +231,8 @@ class HelloControllerTest extends TestCase
      * @return void
      */
     public function testWithLoginAppFailsWithInvalidToken() {
-        // Create an anonymous class that mimics Illuminate\Support\Collection
-        $resultMock = new class () {
-            public function count() {
-                return 0;
-            }
-        };
-
-        // Create database query builder mock
-        $dbMock = $this->getMockBuilder(\stdClass::class)
-            ->addMethods(['table', 'where', 'limit', 'get'])
-            ->getMock();
-
-        // Configure the database mock chain
-        $dbMock->method('table')->willReturnSelf();
-        $dbMock->method('where')->willReturnSelf();
-        $dbMock->method('limit')->willReturnSelf();
-        $dbMock->method('get')->willReturn($resultMock);
-
         // Bind the mock to the app container
-        $this->app->instance('db', $dbMock);
+        $this->app->instance('db', $this->createDatabaseMock(0));
 
         // Make request with invalid token
         $response = $this->call('GET', '/hello/withLoginApp', ['token' => 'invalid-app-token']);
@@ -287,26 +285,8 @@ class HelloControllerTest extends TestCase
      * @return void
      */
     public function testWithLoginAppSuccessWithTokenInHeader() {
-        // Create an anonymous class that mimics Illuminate\Support\Collection
-        $resultMock = new class () {
-            public function count() {
-                return 1;
-            }
-        };
-
-        // Create database query builder mock
-        $dbMock = $this->getMockBuilder(\stdClass::class)
-            ->addMethods(['table', 'where', 'limit', 'get'])
-            ->getMock();
-
-        // Configure the database mock chain
-        $dbMock->method('table')->willReturnSelf();
-        $dbMock->method('where')->willReturnSelf();
-        $dbMock->method('limit')->willReturnSelf();
-        $dbMock->method('get')->willReturn($resultMock);
-
         // Bind the mock to the app container
-        $this->app->instance('db', $dbMock);
+        $this->app->instance('db', $this->createDatabaseMock(1));
 
         // Make request with valid token in header
         $response = $this->call('GET', '/hello/withLoginApp', [], [], [], [
