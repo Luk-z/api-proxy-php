@@ -9,10 +9,9 @@ class HelloController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
-    {
+    public function index() {
         return response()->json([
-            'message' => 'Hello World!'
+            'message' => 'Hello World!',
         ]);
     }
 }

@@ -29,12 +29,14 @@ git clone https://github.com/Luk-z/api-proxy-php.git project_name && rm -rf ./pr
 cd project_name
 ```
 
-2. Install dependencies:
+2. Install suggested vscode extensions
+
+3. Install dependencies:
 ```bash
 composer install
 ```
 
-3. Copy the environment file:
+4. Copy the environment file:
 ```bash
 cp .env.example .env
 ```
@@ -47,6 +49,58 @@ php -S localhost:8000 -t public
 ```
 
 The application will be available at `http://localhost:8000`.
+
+## Development Tools
+
+### Code Quality and Formatting
+
+This project includes PHP linting and formatting tools that work seamlessly with Visual Studio Code.
+
+#### Tools Included
+
+- **PHP_CodeSniffer (PHPCS)**: Linter for detecting coding standard violations (PSR-12)
+- **PHP CS Fixer**: Automatic code formatter
+
+#### Visual Studio Code Setup
+
+1. Install the recommended extensions when prompted, or manually install:
+   - PHP CS Fixer (`junstyle.php-cs-fixer`)
+   - PHP_CodeSniffer (`ikappas.phpcs`)
+   - PHP Intelephense (`bmewburn.vscode-intelephense-client`)
+
+2. The workspace settings (`.vscode/settings.json`) are pre-configured to:
+   - Enable format on save
+   - Run PHP CS Fixer automatically
+   - Show PHPCS violations in real-time
+
+#### Command Line Usage
+
+Check for coding standard violations:
+```bash
+composer lint
+```
+
+Automatically fix coding standard violations:
+```bash
+composer lint:fix
+```
+
+Format code using PHP CS Fixer:
+```bash
+composer format
+```
+
+Check what PHP CS Fixer would change (dry run):
+```bash
+composer format:check
+```
+
+#### Configuration Files
+
+- `phpcs.xml` - PHP_CodeSniffer configuration (PSR-12 standard)
+- `.php-cs-fixer.php` - PHP CS Fixer configuration
+- `.vscode/settings.json` - VS Code workspace settings
+- `.vscode/extensions.json` - Recommended VS Code extensions
 
 ## API Endpoints
 

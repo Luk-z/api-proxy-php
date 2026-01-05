@@ -1,0 +1,36 @@
+{
+    // PHP Configuration
+    "php.validate.enable": true,
+    "php.validate.run": "onSave",
+    
+    // PHP CS Fixer configuration
+    "php-cs-fixer.executablePath": "${workspaceFolder}/php-cs-fixer-wrapper.sh",
+    "php-cs-fixer.onsave": true,
+    "php-cs-fixer.rules": "@PSR12",
+    "php-cs-fixer.config": ".php-cs-fixer.php",
+    
+    // Format on save
+    "[php]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "junstyle.php-cs-fixer"
+    },
+    
+    // File associations
+    "files.associations": {
+        "*.php": "php"
+    },
+    
+    // Intelephense configuration - allow vendor for intellisense
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/.svn/**",
+        "**/.hg/**",
+        "**/CVS/**",
+        "**/.DS_Store/**",
+        "**/node_modules/**",
+        "**/bower_components/**"
+    ],
+    // "intelephense.environment.includePaths": [
+    //     "${workspaceFolder}/vendor"
+    // ]
+}

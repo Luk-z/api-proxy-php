@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ruleset name="API Proxy PHP">
+    <description>PHP_CodeSniffer configuration for API Proxy PHP</description>
+
+    <!-- Use PSR-12 coding standard -->
+    <rule ref="PSR12"/>
+
+    <!-- Show progress and colors -->
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <!-- Paths to check -->
+    <file>app</file>
+    <file>routes</file>
+    <file>public</file>
+    <file>bootstrap</file>
+
+    <!-- Exclude vendor and other directories -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/storage/*</exclude-pattern>
+    <exclude-pattern>*/cache/*</exclude-pattern>
+    <exclude-pattern>*.blade.php</exclude-pattern>
+</ruleset>
