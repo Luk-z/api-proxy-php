@@ -2,9 +2,9 @@
 
 namespace Tests;
 
-use PATA\PATA;
 use PATA\Db\FakeDb;
 use PATA\Helpers\DbHelper;
+use PATA\PATA;
 use PATA\Security\FakeHash;
 
 class HelloControllerTest extends TestCase
@@ -14,8 +14,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testHelloEndpointReturnsCorrectJson()
-    {
+    public function testHelloEndpointReturnsCorrectJson() {
         $this->get('/hello');
 
         $this->assertResponseOk();
@@ -30,8 +29,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testHelloEndpointReturnsValidJson()
-    {
+    public function testHelloEndpointReturnsValidJson() {
         $response = $this->call('GET', '/hello');
 
         $this->assertEquals(200, $response->status());
@@ -43,8 +41,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testHelloEndpointMessageStructure()
-    {
+    public function testHelloEndpointMessageStructure() {
         $this->get('/hello');
 
         $this->assertResponseOk();
@@ -61,8 +58,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithAuthSuccessWithValidToken()
-    {
+    public function testWithAuthSuccessWithValidToken() {
         // Initialize PATA with FakeDb and FakeHash
         PATA::init([
             'dbHandler' => new FakeDb(),
@@ -100,8 +96,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithAuthFailsWithInvalidToken()
-    {
+    public function testWithAuthFailsWithInvalidToken() {
         // Initialize PATA with FakeDb and FakeHash
         PATA::init([
             'dbHandler' => new FakeDb(),
@@ -124,8 +119,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithAuthFailsWithMissingToken()
-    {
+    public function testWithAuthFailsWithMissingToken() {
         // Initialize PATA with FakeDb and FakeHash
         PATA::init([
             'dbHandler' => new FakeDb(),
@@ -146,8 +140,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithAuthFailsWithExpiredToken()
-    {
+    public function testWithAuthFailsWithExpiredToken() {
         // Initialize PATA with FakeDb and FakeHash
         PATA::init([
             'dbHandler' => new FakeDb(),
@@ -184,10 +177,9 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithLoginAppSuccessWithValidToken()
-    {
+    public function testWithLoginAppSuccessWithValidToken() {
         // Create an anonymous class that mimics Illuminate\Support\Collection
-        $resultMock = new class {
+        $resultMock = new class () {
             public function count() {
                 return 1;
             }
@@ -222,10 +214,9 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithLoginAppFailsWithInvalidToken()
-    {
+    public function testWithLoginAppFailsWithInvalidToken() {
         // Create an anonymous class that mimics Illuminate\Support\Collection
-        $resultMock = new class {
+        $resultMock = new class () {
             public function count() {
                 return 0;
             }
@@ -261,8 +252,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithLoginAppFailsWithMissingToken()
-    {
+    public function testWithLoginAppFailsWithMissingToken() {
         // Make request without token - no database mock needed as it should fail before DB query
         $response = $this->call('GET', '/hello/withLoginApp');
 
@@ -279,8 +269,7 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithLoginAppFailsWithEmptyToken()
-    {
+    public function testWithLoginAppFailsWithEmptyToken() {
         // Make request with empty token - no database mock needed as it should fail before DB query
         $response = $this->call('GET', '/hello/withLoginApp', ['token' => '']);
 
@@ -297,10 +286,9 @@ class HelloControllerTest extends TestCase
      *
      * @return void
      */
-    public function testWithLoginAppSuccessWithTokenInHeader()
-    {
+    public function testWithLoginAppSuccessWithTokenInHeader() {
         // Create an anonymous class that mimics Illuminate\Support\Collection
-        $resultMock = new class {
+        $resultMock = new class () {
             public function count() {
                 return 1;
             }
