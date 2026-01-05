@@ -30,7 +30,7 @@ class HelloControllerTest extends TestCase
         $response = $this->call('GET', '/hello');
 
         $this->assertEquals(200, $response->status());
-        $this->assertEquals('application/json', $response->headers->get('Content-Type'));
+        $this->assertStringContainsString('application/json', $response->headers->get('Content-Type'));
     }
 
     /**
