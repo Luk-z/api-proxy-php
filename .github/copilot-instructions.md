@@ -61,7 +61,7 @@ All tests are located in the `tests/` directory and must follow PSR-12 coding st
 │   ├── Exceptions/        # Exception handlers
 │   └── Http/
 │       └── Controllers/   # API controllers
-├── bootstrap/             # Framework bootstrap files
+├── bootstrap/             # Framework bootstrap
 ├── public/                # Public web root (entry point)
 ├── routes/                # Route definitions
 ├── storage/               # Logs and cache files
