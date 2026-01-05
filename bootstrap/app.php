@@ -1,6 +1,14 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
+
+// Load application constants
+require_once __DIR__ . '/../app/constants.php';
+
+// Load test constants if in testing environment
+if (env('APP_ENV') === 'testing' && file_exists(__DIR__ . '/../tests/constants.php')) {
+    require_once __DIR__ . '/../tests/constants.php';
+}
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
@@ -110,7 +118,7 @@ $app->singleton(
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
-    require __DIR__.'/../routes/web.php';
+    require __DIR__ . '/../routes/web.php';
 });
 
 return $app;
