@@ -29,12 +29,14 @@ git clone https://github.com/Luk-z/api-proxy-php.git project_name && rm -rf ./pr
 cd project_name
 ```
 
-2. Install dependencies:
+2. Install suggested vscode extensions
+
+3. Install dependencies:
 ```bash
 composer install
 ```
 
-3. Copy the environment file:
+4. Copy the environment file:
 ```bash
 cp .env.example .env
 ```
