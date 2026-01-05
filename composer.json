@@ -11,6 +11,11 @@
             "App\\": "app/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
@@ -20,12 +25,14 @@
     "prefer-stable": true,
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.89",
-        "squizlabs/php_codesniffer": "^4.0"
+        "squizlabs/php_codesniffer": "^4.0",
+        "phpunit/phpunit": "^9.5"
     },
     "scripts": {
         "lint": "phpcs",
         "lint:fix": "phpcbf",
         "format": "php-cs-fixer fix",
-        "format:check": "php-cs-fixer fix --dry-run --diff"
+        "format:check": "php-cs-fixer fix --dry-run --diff",
+        "test": "phpunit"
     }
 }
