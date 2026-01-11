@@ -22,7 +22,7 @@ cp .env.example .env
 In order to work the following php define should be defined:
 - APP_TABLE_APPS
 
-These php defined are optionale
+These php defined are optional
 - APP_ADD_DEFAULT_ROUTES
 - APP_CUSTOM_INCLUDES_PATH
 - APP_CUSTOM_ROUTES_PATH
