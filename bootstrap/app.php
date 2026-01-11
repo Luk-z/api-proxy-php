@@ -119,6 +119,27 @@ $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {
     require __DIR__ . '/../routes/web.php';
+
+    $customRoutesPath = defined("APP_CUSTOM_ROUTES_PATH") ? APP_CUSTOM_ROUTES_PATH : null;
+    if ($customRoutesPath) {
+        require $customRoutesPath;
+    }
 });
+
+/*
+|--------------------------------------------------------------------------
+| Load Custom Includes
+|--------------------------------------------------------------------------
+|
+| Host app can define APP_CUSTOM_INCLUDES_PATH.
+| If defined APP_CUSTOM_INCLUDES_PATH is included
+| to allow host app to extends controllers, helpers, routes, etc...
+|
+*/
+
+$customIncludesPath = defined("APP_CUSTOM_INCLUDES_PATH") ? APP_CUSTOM_INCLUDES_PATH : null;
+if ($customIncludesPath) {
+    include_once $customIncludesPath;
+}
 
 return $app;
