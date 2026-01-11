@@ -133,7 +133,7 @@ $app->router->group([
 |
 | Host app can define APP_CUSTOM_INCLUDES_PATH.
 | If APP_CUSTOM_INCLUDES_PATH is defined, it is included
-| to allow host app to extends controllers, helpers, routes, etc...
+| to allow host app to extend controllers, helpers, routes, etc...
 |
 */
 
