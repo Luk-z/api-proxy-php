@@ -10,11 +10,13 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+$addDefaultRoutes = defined("APP_ADD_DEFAULT_ROUTES") && APP_ADD_DEFAULT_ROUTES === true;
+if ($addDefaultRoutes) {
+    $router->get('/', function () use ($router) {
+        return $router->app->version();
+    });
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
-
-$router->get('/hello', 'HelloController@index');
-$router->get('/hello/withLoginApp', 'HelloController@withLoginApp');
-$router->get('/hello/withAuth', 'HelloController@withAuth');
+    $router->get('/hello', 'HelloController@index');
+    $router->get('/hello/withLoginApp', 'HelloController@withLoginApp');
+    $router->get('/hello/withAuth', 'HelloController@withAuth');
+}
