@@ -1,3 +1,5 @@
+[![Latest Stable Version](https://poser.pugx.org/luk-z/api-proxy-php/v)](https://packagist.org/packages/luk-z/api-proxy-php)
+
 # api-proxy-php
 
 A PHP API proxy (headless) project built using the Lumen framework.
